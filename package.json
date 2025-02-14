@@ -12,5 +12,7 @@
     "typescript": "~5.7.2",
     "vite": "^6.1.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "livjs": "0.0.8"
+  }
 }
