@@ -31,7 +31,7 @@ const _code = (
   style: Partial<Record<keyof CSSStyleDeclaration, string>> = {}
 ) =>
   widget('code', {
-    text,
+    children: text,
     style: {
       fontFamily: 'monospace',
       // fontSize: '1rem',
@@ -77,24 +77,25 @@ App({
     // MARK: Syntax
     _section([
       widget('h2', {
-        text: 'Syntax'
+        children: 'Syntax'
       }),
       widget('p', {
-        text: 'There is no special syntax for Livjs!! plain JavaScript/Typescript is enough.'
+        children:
+          'There is no special syntax for Livjs!! plain JavaScript/Typescript is enough.'
       }),
       widget('span', {
-        text: 'Everything is a function widget'
+        children: 'Everything is a function widget'
       }),
       _inlineCodeCard('widget()'),
       widget('span', {
-        text: ". That's all. Great, isn't it?"
+        children: ". That's all. Great, isn't it?"
       })
     ]),
 
     // MARK: Properties
     _section([
       widget('h2', {
-        text: 'Widget properties'
+        children: 'Widget properties'
       }),
       widget('ul', {
         style: {
@@ -106,7 +107,7 @@ App({
           widget('li', {
             children: [
               widget('span', {
-                text: 'text'
+                children: 'text'
               }),
               _inlineCodeCard('text?: string')
             ]
@@ -114,7 +115,7 @@ App({
           widget('li', {
             children: [
               widget('span', {
-                text: 'style'
+                children: 'style'
               }),
               _inlineCodeCard('style?:Record<anyCssProperty, string>')
             ]
@@ -122,19 +123,20 @@ App({
           widget('li', {
             children: [
               widget('span', {
-                text: 'cb'
+                children: 'cb'
               }),
               _inlineCodeCard('?: ((el: AnyWidgetElement) => void)'),
               widget('br', {}),
               widget('span', {
-                text: 'callback function to access the element context, current workaround to missing features'
+                children:
+                  'callback function to access the element context, current workaround to missing features'
               })
             ]
           }),
           widget('li', {
             children: [
               widget('span', {
-                text: 'children'
+                children: 'children'
               }),
               _inlineCodeCard('children?: AnyWidgetElement[]')
             ]
@@ -142,7 +144,7 @@ App({
           widget('li', {
             children: [
               widget('span', {
-                text: 'event'
+                children: 'event'
               }),
               _inlineCodeCard(
                 'event?:Record<anyEventProperty, callbackFunction: ((e: Event) => void)>'
@@ -152,30 +154,30 @@ App({
           widget('li', {
             children: [
               widget('span', {
-                text: 'items'
+                children: 'items'
               }),
               _inlineCodeCard('items?: TSignal<unknown[]>'),
               widget('br', {}),
               widget('span', {
-                text: '(Required to use builder)'
+                children: '(Required to use builder)'
               })
             ]
           }),
           widget('li', {
             children: [
               widget('span', {
-                text: 'builder'
+                children: 'builder'
               }),
               _inlineCodeCard(
                 'builder?: ((e: T, index: number) => AnyWidgetElement'
               ),
               widget('br', {}),
               widget('span', {
-                text: ' (It requires the property'
+                children: ' (It requires the property'
               }),
               _inlineCodeCard('items'),
               widget('span', {
-                text: 'to work correctly)'
+                children: 'to work correctly)'
               })
             ]
           })
@@ -186,25 +188,27 @@ App({
     // MARK: Reactivity
     _section([
       widget('h2', {
-        text: 'Reactivity'
+        children: 'Reactivity'
       }),
       widget('p', {
-        text: 'Reactivity is a core concept of Livjs. It is based on signals and effects. Signals are reactive values that can be used to create reactive UIs. Effects are functions that can be used to perform side effects, such as fetching data from an API or updating the DOM. Signals and effects are used together to create a reactive system that can automatically update the UI when the underlying data changes.',
         children: [
+          'Reactivity is a core concept of Livjs. It is based on signals and effects. Signals are reactive values that can be used to create reactive UIs. Effects are functions that can be used to perform side effects, such as fetching data from an API or updating the DOM. Signals and effects are used together to create a reactive system that can automatically update the UI when the underlying data changes.',
           widget('h3', {
-            text: 'Declaring Reactive State'
+            children: 'Declaring Reactive State'
           }),
           _inlineCodeCard('signal()', { margin: '0' }),
           widget('br', {}),
           widget('span', {
-            text: 'Signals are reactive values that can be used to create reactive UIs. They are similar to Reactive Variables in React.'
+            children:
+              'Signals are reactive values that can be used to create reactive UIs. They are similar to Reactive Variables in React.'
           }),
           widget('br', {}),
           widget('br', {}),
           _inlineCodeCard('effect()', { margin: '0' }),
           widget('br', {}),
           widget('span', {
-            text: 'Effects are functions that can be used to perform side effects, such as fetching data from an API or updating the DOM. They are similar to Reactive Functions in React.'
+            children:
+              'Effects are functions that can be used to perform side effects, such as fetching data from an API or updating the DOM. They are similar to Reactive Functions in React.'
           }),
           widget('br', {}),
           widget('br', {}),
@@ -224,11 +228,12 @@ const count = signal(0)`,
           widget('br', {}),
           _inlineCodeCard('signal()', { margin: '0' }),
           widget('span', {
-            text: ' takes the argument and returns it wrapped within a ref object with a'
+            children:
+              ' takes the argument and returns it wrapped within a ref object with a'
           }),
           _inlineCodeCard(' .value '),
           widget('p', {
-            text: 'property:'
+            children: 'property:'
           })
         ]
       })
@@ -237,23 +242,24 @@ const count = signal(0)`,
     // MARK: Routing
     _section([
       widget('h2', {
-        text: 'Routing'
+        children: 'Routing'
       }),
       widget('p', {
         children: [
           widget('span', {
-            text: 'Livjs expose a'
+            children: 'Livjs expose a'
           }),
           _inlineCodeCard('Navigator'),
           widget('span', {
-            text: 'method to navigate between routes'
+            children: 'method to navigate between routes'
           })
         ]
       }),
       widget('p', {
         children: [
           widget('span', {
-            text: 'Declare routes in the App function, routes must export a default widget function'
+            children:
+              'Declare routes in the App function, routes must export a default widget function'
           })
         ]
       }),
@@ -267,7 +273,7 @@ const count = signal(0)`,
 `
       ),
       widget('p', {
-        text: 'Use the Navigator Method to navigate between routes'
+        children: 'Use the Navigator Method to navigate between routes'
       }),
       _blockCode(`import { Navigator } from 'livjs'
 
@@ -314,14 +320,15 @@ function _header() {
           widget('div', {
             children: [
               widget('h1', {
-                text: 'Livjs',
+                children: 'Livjs',
                 style: {
                   margin: '0',
                   padding: '0'
                 }
               }),
               widget('span', {
-                text: 'A simple JavaScript/Typescript Framework for building web applications',
+                children:
+                  'A simple JavaScript/Typescript Framework for building web applications',
                 style: {
                   fontSize: '0.8rem'
                 }
@@ -342,7 +349,7 @@ function _header() {
                 },
                 children: [
                   widget('span', {
-                    text: 'Version 0.0.8',
+                    children: 'Version 0.0.8',
                     style: {
                       fontStyle: 'italic',
                       fontSize: '0.6rem'
@@ -353,7 +360,7 @@ function _header() {
                       textAlign: 'end',
                       fontSize: '0.9rem'
                     },
-                    text: 'GitHub',
+                    children: 'GitHub',
                     cb(e) {
                       // @ts-ignore
                       e.href = 'https://github.com/echb/livjs'
@@ -367,7 +374,7 @@ function _header() {
                       textAlign: 'end',
                       fontSize: '0.9rem'
                     },
-                    text: 'Npm',
+                    children: 'Npm',
                     cb(e) {
                       // @ts-ignore
                       e.href = 'https://www.npmjs.com/package/livjs'
@@ -383,7 +390,8 @@ function _header() {
         ]
       }),
       widget('div', {
-        text: 'Please keep in mind that Livj is still under active development and full backward compatibility is not guaranteed before reaching v1.0.0. Livjs is NOT recommended for production critical applications yet, unless you are fine with applying some manual migration steps from time to time.',
+        children:
+          'Please keep in mind that Livj is still under active development and full backward compatibility is not guaranteed before reaching v1.0.0. Livjs is NOT recommended for production critical applications yet, unless you are fine with applying some manual migration steps from time to time.',
         style: () => ({
           color: '#f54848',
           // borderTop: `1px solid ${theme.border}`,
@@ -398,16 +406,17 @@ function _header() {
 function _creation() {
   return _section([
     widget('h2', {
-      text: 'Creating a Livjs Application'
+      children: 'Creating a Livjs Application'
     }),
     widget('p', {
       children: [
         widget('span', {
-          text: 'The App function is in fact a component. It search for an html element with the'
+          children:
+            'The App function is in fact a component. It search for an html element with the'
         }),
         _inlineCodeCard('id="app"'),
         widget('b', {
-          text: 'property.'
+          children: 'property.'
         })
       ]
     }),
