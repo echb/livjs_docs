@@ -2,10 +2,12 @@ import { widget } from 'livjs'
 import { _blockCode } from '../components/block_code'
 import { _inlineCodeCard } from '../components/inline_code'
 import { _section } from '../components/section'
+import { SECTIONS } from './sections'
 
 export const _routing = _section([
   widget('h2', {
-    children: 'Routing'
+    children: 'Routing',
+    id: SECTIONS.routing.id
   }),
   widget('p', {
     children: [

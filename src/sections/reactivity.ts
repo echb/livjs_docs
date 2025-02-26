@@ -3,10 +3,12 @@ import { _card } from '../components/card'
 import { _code } from '../components/code'
 import { _inlineCodeCard } from '../components/inline_code'
 import { _section } from '../components/section'
+import { SECTIONS } from './sections'
 
 export const _reactivity = _section([
   widget('h2', {
-    children: 'Reactivity'
+    children: 'Reactivity',
+    id: SECTIONS.reactivity.id
   }),
   widget('p', {
     children: [

@@ -1,10 +1,12 @@
 import { widget } from 'livjs'
 import { _inlineCodeCard } from '../components/inline_code'
 import { _section } from '../components/section'
+import { SECTIONS } from './sections'
 
 export const _properties = _section([
   widget('h2', {
-    children: 'Widget properties'
+    children: 'Widget properties',
+    id: SECTIONS.properties.id
   }),
   widget('ul', {
     style: {

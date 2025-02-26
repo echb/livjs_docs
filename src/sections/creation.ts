@@ -3,10 +3,12 @@ import { _card } from '../components/card'
 import { _inlineCodeCard } from '../components/inline_code'
 import { _code } from '../components/code'
 import { _section } from '../components/section'
+import { SECTIONS } from './sections'
 
 export const _creation = _section([
   widget('h2', {
-    children: 'Creating a Livjs Application'
+    children: 'Creating a Livjs Application',
+    id: SECTIONS.creation.id
   }),
   widget('p', {
     children: [

@@ -1,10 +1,12 @@
 import { widget } from 'livjs'
 import { _section } from '../components/section'
 import { _inlineCodeCard } from '../components/inline_code'
+import { SECTIONS } from './sections'
 
 export const _syntax = _section([
   widget('h2', {
-    children: 'Syntax'
+    children: 'Syntax',
+    id: SECTIONS.syntax.id
   }),
   widget('p', {
     children:
