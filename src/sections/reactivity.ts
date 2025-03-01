@@ -1,9 +1,21 @@
 import { widget } from 'livjs'
-import { _card } from '../components/card'
-import { _code } from '../components/code'
-import { _inlineCodeCard } from '../components/inline_code'
-import { _section } from '../components/section'
+import { _card } from '#components/card.ts'
+import { _code } from '#components/code.ts'
+import { _inlineCodeCard } from '#components/inline_code.ts'
+import { _section } from '#components/section.ts'
+import { shikiCode } from '#components/shiki.ts'
 import { SECTIONS } from './sections'
+
+const examples = {
+  effect: `import { signal, effect } from 'livjs'
+
+const count = signal(0)
+
+effect(() => {
+  console.log(count.value) // whenever count changes, this effect will run
+})
+`
+}
 
 export const _reactivity = _section([
   widget('h2', {
@@ -16,36 +28,27 @@ export const _reactivity = _section([
       widget('h3', {
         children: 'Declaring Reactive State'
       }),
+      widget('h3', {
+        children: 'signal()'
+      }),
       _inlineCodeCard('signal()', { margin: '0' }),
-      widget('br', {}),
+      widget('br'),
       widget('span', {
         children:
           'Signals are reactive values that can be used to create reactive UIs. They are similar to Reactive Variables in React.'
       }),
-      widget('br', {}),
-      widget('br', {}),
+      widget('br'),
+      widget('br'),
       _inlineCodeCard('effect()', { margin: '0' }),
-      widget('br', {}),
+      widget('br'),
       widget('span', {
         children:
           'Effects are functions that can be used to perform side effects, such as fetching data from an API or updating the DOM. They are similar to Reactive Functions in React.'
       }),
-      widget('br', {}),
-      widget('br', {}),
-      _card(
-        _code(
-          `import { signal, effect } from 'livjs'
-              
-const count = signal(0)`,
-          {
-            color: 'black'
-          }
-        ),
-        {
-          backgroundColor: 'white'
-        }
-      ),
-      widget('br', {}),
+      widget('br'),
+      widget('br'),
+      shikiCode(examples.effect),
+      widget('br'),
       _inlineCodeCard('signal()', { margin: '0' }),
       widget('span', {
         children:

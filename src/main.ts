@@ -19,7 +19,8 @@ App({
     _header,
     widget('main', {
       style: {
-        display: 'flex'
+        display: 'flex',
+        marginBottom: '20px'
       },
       children: [
         widget('div', {

@@ -3,6 +3,32 @@ import { _blockCode } from '../components/block_code'
 import { _inlineCodeCard } from '../components/inline_code'
 import { _section } from '../components/section'
 import { SECTIONS } from './sections'
+import { shikiCode } from '#src/components/shiki.ts'
+
+const examples = {
+  declareRoutes: `App({
+  routes: [
+    { name: 'home', path: '/', component: () => import('./hello') },
+    { name: 'about', path: '/about', component: () => import('./about.js') },
+  ]
+})`,
+  navigator: `import { Navigator } from 'livjs'
+
+export default () => {
+  return widget("div", {
+    children: [
+      widget('div', {
+        text: 'hello world',
+        event: {
+          onclick() {
+            Navigator.push('/about')
+          }
+        }
+      }),
+    ],
+  })
+}`
+}
 
 export const _routing = _section([
   widget('h2', {
@@ -28,33 +54,9 @@ export const _routing = _section([
       })
     ]
   }),
-  _blockCode(
-    `App({
-routes: [
-{ name: 'home', path: '/', component: () => import('./hello') },
-{ name: 'about', path: '/about', component: () => import('./about.js') },
-]
-})
-`
-  ),
+  shikiCode(examples.declareRoutes),
   widget('p', {
     children: 'Use the Navigator Method to navigate between routes'
   }),
-  _blockCode(`import { Navigator } from 'livjs'
-
-export default () => {
-return widget("div", {
-children: [
-  widget('div', {
-    text: 'hello world',
-    event: {
-      onclick() {
-        Navigator.push('/about')
-      }
-    }
-  }),
-],
-})
-}
-`)
+  shikiCode(examples.navigator)
 ])

@@ -1,9 +1,23 @@
 import { widget } from 'livjs'
-import { _card } from '../components/card'
-import { _inlineCodeCard } from '../components/inline_code'
-import { _code } from '../components/code'
-import { _section } from '../components/section'
+import { _card } from '#components/card.ts'
+import { _inlineCodeCard } from '#components/inline_code.ts'
+import { _code } from '#components/code.ts'
+import { _section } from '#components/section.ts'
 import { SECTIONS } from './sections'
+import { shikiCode } from '#src/components/shiki.ts'
+
+const examples = {
+  basic: `import { type AnyWidgetElement, App, widget } from 'livjs'
+
+App({
+  children: [
+    widget('div', {
+      text: 'Hello World!'
+    })
+  ]
+})
+`
+}
 
 export const _creation = _section([
   widget('h2', {
@@ -22,24 +36,5 @@ export const _creation = _section([
       })
     ]
   }),
-  _card(
-    _code(
-      `import { type AnyWidgetElement, App, widget } from 'livjs'
-
-App({
-children: [
-  widget('div', {
-  text: 'Hello World!'
-  })
-]
-})
-`,
-      {
-        color: 'black'
-      }
-    ),
-    {
-      backgroundColor: 'white'
-    }
-  )
+  shikiCode(examples.basic)
 ])
