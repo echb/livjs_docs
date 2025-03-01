@@ -11,7 +11,6 @@ import { _syntax } from './sections/syntax'
 import { _properties } from './sections/properties'
 import { _reactivity } from './sections/reactivity'
 import { _routing } from './sections/routing'
-import './style.css'
 import { SECTIONS } from './sections/sections'
 
 App({
@@ -43,7 +42,7 @@ App({
         }),
         widget('aside', {
           style: {
-            backgroundColor: '#ffffff0f'
+            // backgroundColor: '#ffffff0f'
           },
           children: widget('div', {
             style: {
