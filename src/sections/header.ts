@@ -4,14 +4,12 @@ import { _glass } from '../style'
 export const _header = widget('div', {
   style: {
     ..._glass,
-    // position: 'sticky',
     top: '0',
     background: 'rgba(0, 0, 0, 0.16)',
     boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
-    // borderBottom: `1px solid ${theme.border}`,
     zIndex: '2',
-    marginBottom: '16px',
-    padding: '16px'
+    padding: '16px',
+    borderBottom: '1px solid #000000'
   },
   children: [
     widget('div', {
@@ -96,7 +94,6 @@ export const _header = widget('div', {
         'Please keep in mind that Livj is still under active development and full backward compatibility is not guaranteed before reaching v1.0.0. Livjs is NOT recommended for production critical applications yet, unless you are fine with applying some manual migration steps from time to time.',
       style: () => ({
         color: '#f54848',
-        // borderTop: `1px solid ${theme.border}`,
         marginTop: '16px',
         fontSize: '0.8rem'
       })
