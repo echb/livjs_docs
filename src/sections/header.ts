@@ -63,11 +63,9 @@ export const _header = widget('div', {
                     fontSize: '0.9rem'
                   },
                   children: 'GitHub',
-                  cb(e) {
-                    // @ts-ignore
-                    e.href = 'https://github.com/echb/livjs'
-                    // @ts-ignore
-                    e.target = '_blank'
+                  attributes: {
+                    href: 'https://github.com/echb/livjs',
+                    target: '_blank'
                   }
                 }),
                 widget('a', {
@@ -76,11 +74,9 @@ export const _header = widget('div', {
                     fontSize: '0.9rem'
                   },
                   children: 'Npm',
-                  cb(e) {
-                    // @ts-ignore
-                    e.href = 'https://www.npmjs.com/package/livjs'
-                    // @ts-ignore
-                    e.target = '_blank'
+                  attributes: {
+                    href: 'https://www.npmjs.com/package/livjs',
+                    target: '_blank'
                   }
                 })
               ]
