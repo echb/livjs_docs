@@ -1,6 +1,8 @@
 import { widget } from 'livjs'
 import { _glass } from '../style'
 
+const livjsVersion = '0.2.2'
+
 export const _header = widget('div', {
   style: {
     ..._glass,
@@ -47,11 +49,10 @@ export const _header = widget('div', {
               style: {
                 display: 'flex',
                 flexDirection: 'column'
-                // gap: '3px'
               },
               children: [
                 widget('span', {
-                  children: 'Version 0.0.8',
+                  children: `Version ${livjsVersion}`,
                   style: {
                     fontStyle: 'italic',
                     fontSize: '0.6rem'
