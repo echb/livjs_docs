@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
 @import url('/icons/check.css');
 @import url('/icons/copy.css');
+@import url('/icons/menu.css');
 
 * {
   color: #ffffffde;
@@ -21,11 +22,36 @@ body {
   padding: 0;
 }
 
+li,
+span,
+p,
+a {
+  color: inherit;
+  font-weight: inherit;
+}
+
 .link {
-  background-color: transparent;
-  transition: background-color 0.3s ease-in-out;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
 }
 
 .link:hover {
-  background-color: #547654;
+  color: #73f273;
+}
+
+.shiki.vitesse-dark {
+  overflow: scroll;
+  padding-right: 50px;
+  padding-bottom: 50px;
+}
+
+
+.sidebar {
+  width: 320px;
+}
+
+@media (max-width: 320px) {
+  .sidebar {
+    width: calc(100% - 64px);
+  }
 }
