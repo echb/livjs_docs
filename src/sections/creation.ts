@@ -12,7 +12,7 @@ const examples = {
 App({
   children: [
     widget('div', {
-      text: 'Hello World!'
+      children: 'Hello World!'
     })
   ]
 })
