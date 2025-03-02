@@ -2,12 +2,27 @@ import { widget } from 'livjs'
 import { _inlineCodeCard } from '../components/inline_code'
 import { _section } from '../components/section'
 import { SECTIONS } from './sections'
+import { shikiCode } from '#src/components/shiki.ts'
+
+const examples = {
+  properties: `id?: string; // id of the html element
+children?: TChildren; // children of the html element
+class?: string | string[] | (() => string | string[]);
+style?: TStyle | (() => TStyle);   // style of the html element
+event?: TEvent;   // any html event
+attributes?: Record<string, string> | (() => Record<string, string>);   // attributes of the html element
+cb?: (el: AnyWidgetElement) => void;   // callback function to access the element context, current workaround to missing features
+items?: TSignal<T[]>;   // items a property to use builder
+builder?: (e: T, index: number) => AnyWidgetElement | undefined;   // builder function to create children
+`
+}
 
 export const _properties = _section([
   widget('h2', {
     children: 'Widget properties',
     id: SECTIONS.properties.id
   }),
+  shikiCode(examples.properties),
   widget('ul', {
     style: {
       marginLeft: '0',
@@ -15,14 +30,7 @@ export const _properties = _section([
       display: 'grid'
     },
     children: [
-      widget('li', {
-        children: [
-          widget('span', {
-            children: 'text'
-          }),
-          _inlineCodeCard('text?: string')
-        ]
-      }),
+      widget('li', {}),
       widget('li', {
         children: [
           widget('span', {
