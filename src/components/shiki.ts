@@ -1,5 +1,5 @@
 import { _css_border } from '#src/style.ts'
-import { signal, type TSignal, widget } from 'livjs'
+import { type AnyWidgetElement, signal, type TSignal, widget } from 'livjs'
 import { createHighlighterCore } from 'shiki/core'
 import { createOnigurumaEngine } from 'shiki/engine/oniguruma'
 
@@ -19,11 +19,20 @@ const code = (code: string) =>
 
 const copiedText = 'Copied'
 
-export const shikiCode = (text: string) => {
+export const shikiCode = (
+  text: string,
+  params?: {
+    before?: AnyWidgetElement | AnyWidgetElement[]
+  }
+) => {
   const hover = signal(false)
   const copied: TSignal<number | undefined> = signal(0)
   const shikiCodeBlock = widget('div')
   shikiCodeBlock.innerHTML = code(text)
+
+  const before = Array.isArray(params?.before)
+    ? [...(params?.before ?? [])]
+    : [params?.before ?? '']
 
   return widget('div', {
     style: {
@@ -33,6 +42,7 @@ export const shikiCode = (text: string) => {
       position: 'relative'
     },
     children: [
+      ...before,
       widget('div', {
         style: {
           position: 'absolute',
@@ -76,12 +86,13 @@ export const shikiCode = (text: string) => {
                 hover.value = true
               },
               click: () => {
+                const time = 1000
                 navigator.clipboard.writeText(text)
                 clearTimeout(copied.value)
                 copied.value = setTimeout(() => {
                   clearTimeout(copied.value)
                   copied.value = undefined
-                }, 1000)
+                }, time)
               }
             }
           })
