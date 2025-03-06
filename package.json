@@ -13,6 +13,8 @@
     "#components/*": "./src/components/*"
   },
   "devDependencies": {
+    "@playwright/test": "1.50.1",
+    "@types/node": "22.13.9",
     "shiki": "3.1.0",
     "typescript": "5.7.2",
     "vite": "6.1.0"
