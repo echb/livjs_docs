@@ -1,5 +1,6 @@
 import { _css_border } from '#src/style.ts'
-import { type AnyWidgetElement, signal, type TSignal, widget } from 'livjs'
+import { div } from '#src/tags.ts'
+import { type AnyWidgetElement, signal, type TSignal } from 'livjs'
 import { createHighlighterCore } from 'shiki/core'
 import { createOnigurumaEngine } from 'shiki/engine/oniguruma'
 
@@ -26,15 +27,15 @@ export const shikiCode = (
   }
 ) => {
   const hover = signal(false)
-  const copied: TSignal<number | undefined> = signal(0)
-  const shikiCodeBlock = widget('div')
+  const copied: TSignal<NodeJS.Timeout | undefined> = signal(undefined)
+  const shikiCodeBlock = div()
   shikiCodeBlock.innerHTML = code(text)
 
   const before = Array.isArray(params?.before)
     ? [...(params?.before ?? [])]
     : [params?.before ?? '']
 
-  return widget('div', {
+  return div({
     style: {
       backgroundColor: '#121212',
       padding: _css_border.borderRadius,
@@ -43,7 +44,7 @@ export const shikiCode = (
     },
     children: [
       ...before,
-      widget('div', {
+      div({
         style: {
           position: 'absolute',
           top: '10px',
@@ -52,14 +53,14 @@ export const shikiCode = (
           alignItems: 'center'
         },
         children: [
-          widget('div', {
+          div({
             style: () => ({
               display: copied.value ? 'initial' : 'none',
               marginRight: '10px'
             }),
             children: copiedText
           }),
-          widget('div', {
+          div({
             class: 'code-block-card',
             style: () => ({
               transition: 'background-color 0.3s ease-in-out',
@@ -74,7 +75,7 @@ export const shikiCode = (
               cursor: 'pointer'
             }),
             children: [
-              widget('div', {
+              div({
                 class: () => (copied.value ? 'gg-check-o' : 'gg-copy')
               })
             ],
