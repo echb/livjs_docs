@@ -1,8 +1,8 @@
-import { widget } from 'livjs'
 import { _inlineCodeCard } from '../components/inline_code'
 import { _section } from '../components/section'
 import { SECTIONS } from './sections'
 import { shikiCode } from '#src/components/shiki.ts'
+import { br, h2, li, span, ul } from '#src/tags.ts'
 
 const examples = {
   properties: `id?: string; // id of the html element
@@ -18,51 +18,50 @@ builder?: (e: T, index: number) => AnyWidgetElement | undefined;   // builder fu
 }
 
 export const _properties = _section([
-  widget('h2', {
+  h2({
     children: 'Widget properties',
     id: SECTIONS.properties.id
   }),
   shikiCode(examples.properties),
-  widget('ul', {
+  ul({
     style: {
       marginLeft: '0',
       gap: '10px',
       display: 'grid'
     },
     children: [
-      widget('li', {}),
-      widget('li', {
+      li({
         children: [
-          widget('span', {
+          span({
             children: 'style'
           }),
           _inlineCodeCard('style?:Record<anyCssProperty, string>')
         ]
       }),
-      widget('li', {
+      li({
         children: [
-          widget('span', {
+          span({
             children: 'cb'
           }),
           _inlineCodeCard('?: ((el: AnyWidgetElement) => void)'),
-          widget('br', {}),
-          widget('span', {
+          br(),
+          span({
             children:
               'callback function to access the element context, current workaround to missing features'
           })
         ]
       }),
-      widget('li', {
+      li({
         children: [
-          widget('span', {
+          span({
             children: 'children'
           }),
           _inlineCodeCard('children?: AnyWidgetElement[]')
         ]
       }),
-      widget('li', {
+      li({
         children: [
-          widget('span', {
+          span({
             children: 'event'
           }),
           _inlineCodeCard(
@@ -70,32 +69,32 @@ export const _properties = _section([
           )
         ]
       }),
-      widget('li', {
+      li({
         children: [
-          widget('span', {
+          span({
             children: 'items'
           }),
           _inlineCodeCard('items?: TSignal<unknown[]>'),
-          widget('br', {}),
-          widget('span', {
+          br(),
+          span({
             children: '(Required to use builder)'
           })
         ]
       }),
-      widget('li', {
+      li({
         children: [
-          widget('span', {
+          span({
             children: 'builder'
           }),
           _inlineCodeCard(
             'builder?: ((e: T, index: number) => AnyWidgetElement'
           ),
-          widget('br', {}),
-          widget('span', {
+          br(),
+          span({
             children: ' (It requires the property'
           }),
           _inlineCodeCard('items'),
-          widget('span', {
+          span({
             children: 'to work correctly)'
           })
         ]
