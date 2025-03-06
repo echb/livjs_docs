@@ -42,7 +42,8 @@ a {
 .shiki.vitesse-dark {
   overflow: scroll;
   padding-right: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 10px;
+  scrollbar-width: thin;
 }
 
 

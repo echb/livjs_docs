@@ -1,22 +1,23 @@
-import { widget } from 'livjs'
 import { _section } from '../components/section'
 import { _inlineCodeCard } from '../components/inline_code'
 import { SECTIONS } from './sections'
+import { h2, p, span } from '#src/tags.ts'
+import { inlineHighlight } from '#src/components/inline_highlight.ts'
 
 export const _syntax = _section([
-  widget('h2', {
+  h2({
     children: 'Syntax',
     id: SECTIONS.syntax.id
   }),
-  widget('p', {
+  p({
     children:
       'There is no special syntax for Livjs!! plain JavaScript/Typescript is enough.'
   }),
-  widget('span', {
+  span({
     children: 'Everything is a function widget'
   }),
-  _inlineCodeCard('widget()'),
-  widget('span', {
+  inlineHighlight('widget()'),
+  span({
     children: ". That's all. Great, isn't it?"
   })
 ])

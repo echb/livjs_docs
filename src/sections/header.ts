@@ -1,7 +1,7 @@
 import { widget } from 'livjs'
 import { _glass } from '../style'
 
-const livjsVersion = '0.2.2'
+const livjsVersion = '0.5.1'
 
 export const _header = widget('div', {
   style: {

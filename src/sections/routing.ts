@@ -1,9 +1,9 @@
-import { widget } from 'livjs'
 import { _blockCode } from '#components/block_code.ts'
-import { _inlineCodeCard } from '#components/inline_code.ts'
 import { _section } from '#components/section.ts'
 import { SECTIONS } from './sections'
 import { shikiCode } from '#src/components/shiki.ts'
+import { h2, h3, p, span } from '#src/tags.ts'
+import { inlineHighlight } from '#src/components/inline_highlight.ts'
 
 const examples = {
   declareRoutes: `App({
@@ -31,46 +31,52 @@ export default () => {
 }
 
 export const _routing = _section([
-  widget('h2', {
+  h2({
     children: 'Routing',
     id: SECTIONS.routing.id
   }),
-  widget('p', {
+  p({
     children: [
-      widget('span', {
+      span({
         children: 'Livjs expose a'
       }),
-      _inlineCodeCard('Navigator'),
-      widget('span', {
+      inlineHighlight('Navigator'),
+      span({
         children: 'method to navigate between routes'
       })
     ]
   }),
-  widget('p', {
+  p({
     children: [
-      widget('span', {
+      span({
         children:
           'Declare routes in the App function, routes must export a default widget function'
       })
     ]
   }),
   shikiCode(examples.declareRoutes, {
-    before: widget('span', {
+    before: span({
       children: 'main.ts',
       style: {
         borderBottom: '1px solid white'
       }
     })
   }),
-  widget('p', {
+  p({
     children: 'Use the Navigator Method to navigate between routes'
   }),
   shikiCode(examples.navigator, {
-    before: widget('span', {
+    before: span({
       children: 'hello.ts',
       style: {
         borderBottom: '1px solid white'
       }
     })
+  }),
+  h3({
+    children: 'Navigator methods'
+  }),
+  span({
+    children: inlineHighlight('Todo')
   })
 ])

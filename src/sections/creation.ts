@@ -4,7 +4,8 @@ import { _code } from '#components/code.ts'
 import { _section } from '#components/section.ts'
 import { SECTIONS } from './sections'
 import { shikiCode } from '#src/components/shiki.ts'
-import { b, div, h2, p, span } from '#src/tags.ts'
+import { h2, p, span } from '#src/tags.ts'
+import { inlineHighlight } from '#src/components/inline_highlight.ts'
 
 const examples = {
   basic: `import { App, widget } from 'livjs'
@@ -32,9 +33,6 @@ App({
 }
 
 export const _creation = _section([
-  div({
-    children: 'Hello World!'
-  }),
   h2({
     children: 'Creating a Livjs Application',
     id: SECTIONS.creation.id
@@ -43,12 +41,10 @@ export const _creation = _section([
     children: [
       span({
         children:
-          'The App function is in fact a component. It search for an html element with the'
+          'The App function is in fact a component. It search for an html element with the '
       }),
-      _inlineCodeCard('id="app"'),
-      b({
-        children: 'property.'
-      })
+      inlineHighlight('id="app"'),
+      ' property.'
     ]
   }),
   shikiCode(examples.basic),
