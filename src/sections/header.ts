@@ -32,7 +32,7 @@ export const _header = widget('div', {
             }),
             widget('span', {
               children:
-                'A simple JavaScript/Typescript Framework for building web applications',
+                'A simple JavaScript/Typescript Library for building web applications',
               style: {
                 fontSize: '0.8rem'
               }
