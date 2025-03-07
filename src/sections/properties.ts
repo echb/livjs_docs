@@ -2,7 +2,7 @@ import { _inlineCodeCard } from '../components/inline_code'
 import { _section } from '../components/section'
 import { SECTIONS } from './sections'
 import { shikiCode } from '#src/components/shiki.ts'
-import { br, h2, li, span, ul } from '#src/tags.ts'
+import { h2, ul } from '#src/tags.ts'
 
 const examples = {
   properties: `id //id of the html element
