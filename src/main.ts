@@ -12,6 +12,7 @@ import { _properties } from './sections/properties'
 import { _reactivity } from './sections/reactivity'
 import { _routing } from './sections/routing'
 import { SECTIONS } from './sections/sections'
+import { div } from './tags'
 
 const showNavVar = signal(false)
 
@@ -29,14 +30,7 @@ App({
         _header,
 
         // MARK: Sidebar navigation
-        widget('div', {
-          event: {
-            click(e) {
-              if (e.target !== e.currentTarget) return
-
-              showNavVar.value = false
-            }
-          },
+        div({
           style: () => ({
             backgroundColor: '#0009',
             top: '0',
@@ -44,65 +38,77 @@ App({
             height: '100dvh',
             width: '100dvw',
             position: 'fixed',
-            zIndex: '4',
+            zIndex: showNavVar.value ? '4' : '-1',
             opacity: showNavVar.value ? '1' : '0',
+            transition: 'opacity .5s cubic-bezier(.19,1,.22,1)'
+          }),
+          event: {
+            click(e) {
+              if (e.target !== e.currentTarget) return
+
+              showNavVar.value = false
+            }
+          }
+        }),
+        widget('div', {
+          class: 'sidebar',
+          style: () => ({
+            top: '0',
+            left: '0',
+            position: 'fixed',
+            zIndex: '4',
             transform: showNavVar.value ? 'translateX(0)' : 'translateX(-100%)',
-            transition: 'transform .5s cubic-bezier(.19,1,.22,1), opacity .5s'
+            transition: 'transform .5s cubic-bezier(.19,1,.22,1)',
+            display: 'inline-flex',
+            backgroundColor: '#18181b',
+            padding: '32px',
+            height: '100dvh',
+            flexDirection: 'column'
           }),
           children: [
-            widget('div', {
-              class: 'sidebar',
-              style: () => ({
+            widget('span', {
+              style: {
+                fontWeight: '700',
+                marginBottom: '10px'
+              },
+              children: 'Guide'
+            }),
+            widget('ul', {
+              style: {
+                listStyle: 'none',
+                padding: '0px',
+                margin: '0px',
+                gap: '8px',
                 display: 'inline-flex',
-                backgroundColor: '#18181b',
-                padding: '32px',
-                height: '100dvh',
-                flexDirection: 'column'
-              }),
+                flexDirection: 'column',
+                fontSize: '13px',
+                fontWeight: '300'
+              },
               children: [
-                widget('span', {
-                  style: {
-                    fontWeight: '700',
-                    marginBottom: '10px'
-                  },
-                  children: 'Guide'
-                }),
-                widget('ul', {
-                  style: {
-                    listStyle: 'none',
-                    padding: '0px',
-                    margin: '0px',
-                    gap: '8px',
-                    display: 'inline-flex',
-                    flexDirection: 'column',
-                    fontSize: '13px',
-                    fontWeight: '300'
-                  },
-                  children: [
-                    ...Object.values(SECTIONS).map((e) =>
-                      widget('a', {
-                        class: 'link',
-                        style: {
-                          fontSize: '14px',
-                          borderRadius: '6px'
-                        },
-                        attributes: {
-                          href: `#${e.id}`
-                        },
-                        children: [
-                          widget('li', {
-                            style: {},
-                            children: e.text
-                          })
-                        ]
+                ...Object.values(SECTIONS).map((e) =>
+                  widget('a', {
+                    class: 'link',
+                    style: {
+                      fontSize: '14px',
+                      borderRadius: '6px'
+                    },
+                    attributes: {
+                      href: `#${e.id}`
+                    },
+                    children: [
+                      widget('li', {
+                        style: {},
+                        children: e.text
                       })
-                    )
-                  ]
-                })
+                    ]
+                  })
+                )
               ]
             })
           ]
         }),
+        //   ]
+        // }),
 
         // MARK: Sticky menu
         widget('div', {

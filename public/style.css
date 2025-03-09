@@ -31,12 +31,19 @@ a {
 }
 
 .link {
+  transition: color 0.3s ease-in, background-color 0.3s ease-in;
+}
+
+.link a {
+  display: block;
   text-decoration: none;
-  transition: color 0.3s ease-in-out;
+  padding: 3px;
 }
 
 .link:hover {
-  color: #73f273;
+  color: #89f889;
+  outline: 1px solid #73f273;
+  background-color: #73f2736b;
 }
 
 .shiki.vitesse-dark {
