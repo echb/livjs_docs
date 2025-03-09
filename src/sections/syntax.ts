@@ -1,8 +1,7 @@
-import { _section } from '../components/section'
-import { _inlineCodeCard } from '../components/inline_code'
-import { SECTIONS } from './sections'
-import { h2, p, span } from '#src/tags.ts'
 import { inlineHighlight } from '#src/components/inline_highlight.ts'
+import { h2, p, span } from '#src/tags.ts'
+import { _section } from '../components/section'
+import { SECTIONS } from './sections'
 
 export const _syntax = _section([
   h2({

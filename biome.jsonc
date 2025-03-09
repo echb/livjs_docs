@@ -3,8 +3,14 @@
     "indentStyle": "space",
     "lineWidth": 80
   },
+  "organizeImports": {
+    "enabled": true
+  },
   "linter": {
     "rules": {
+      "correctness": {
+        "noUnusedImports": "warn"
+      },
       "complexity": {
         "noStaticOnlyClass": "off"
       },
