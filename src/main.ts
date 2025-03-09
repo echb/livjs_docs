@@ -1,4 +1,4 @@
-import { App, signal, widget } from 'livjs'
+import { App, signal } from 'livjs'
 import { _glass } from './style'
 import { _header } from './sections/header'
 import { _card } from '#components/card.ts'
@@ -12,13 +12,12 @@ import { _properties } from './sections/properties'
 import { _reactivity } from './sections/reactivity'
 import { _routing } from './sections/routing'
 import { SECTIONS } from './sections/sections'
-import { div } from './tags'
-
+import { a, div, li, main, span, ul } from './tags'
 const showNavVar = signal(false)
 
 App({
   children: [
-    widget('div', {
+    div({
       attributes: {
         layout: ''
       },
@@ -50,7 +49,7 @@ App({
             }
           }
         }),
-        widget('div', {
+        div({
           class: 'sidebar',
           style: () => ({
             top: '0',
@@ -66,14 +65,14 @@ App({
             flexDirection: 'column'
           }),
           children: [
-            widget('span', {
+            span({
               style: {
                 fontWeight: '700',
                 marginBottom: '10px'
               },
               children: 'Guide'
             }),
-            widget('ul', {
+            ul({
               style: {
                 listStyle: 'none',
                 padding: '0px',
@@ -86,17 +85,17 @@ App({
               },
               children: [
                 ...Object.values(SECTIONS).map((e) =>
-                  widget('a', {
+                  li({
                     class: 'link',
                     style: {
                       fontSize: '14px',
                       borderRadius: '6px'
                     },
-                    attributes: {
-                      href: `#${e.id}`
-                    },
                     children: [
-                      widget('li', {
+                      a({
+                        attributes: {
+                          href: `#${e.id}`
+                        },
                         style: {},
                         children: e.text
                       })
@@ -107,11 +106,9 @@ App({
             })
           ]
         }),
-        //   ]
-        // }),
 
         // MARK: Sticky menu
-        widget('div', {
+        div({
           style: {
             position: 'sticky',
             top: '0px',
@@ -121,7 +118,7 @@ App({
             borderBottom: '1px solid #000000'
           },
           children: [
-            widget('div', {
+            div({
               style: {
                 display: 'flex',
                 alignItems: 'center',
@@ -131,10 +128,10 @@ App({
                 cursor: 'pointer'
               },
               children: [
-                widget('div', {
+                div({
                   class: 'gg-menu-left-alt'
                 }),
-                widget('span', {
+                span({
                   style: {
                     fontSize: '12px'
                   },
@@ -150,7 +147,7 @@ App({
           ]
         }),
 
-        widget('main', {
+        main({
           children: [
             // MARK: Introduction
             _creation,
