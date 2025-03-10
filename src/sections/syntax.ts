@@ -1,6 +1,6 @@
-import { inlineHighlight } from '#src/components/inline_highlight.ts'
+import { inlineHighlight } from '#components/inline_highlight.ts'
+import { _section } from '#components/section/section.ts'
 import { h2, p, span } from '#src/tags.ts'
-import { _section } from '../components/section'
 import { SECTIONS } from './sections'
 
 export const _syntax = _section([

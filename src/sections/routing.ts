@@ -1,9 +1,8 @@
-import { _blockCode } from '#components/block_code.ts'
-import { _section } from '#components/section.ts'
-import { SECTIONS } from './sections'
-import { shikiCode } from '#src/components/shiki.ts'
+import { inlineHighlight } from '#components/inline_highlight.ts'
+import { _section } from '#components/section/section.ts'
+import { shikiCode } from '#components/shiki.ts'
 import { h2, h3, p, span } from '#src/tags.ts'
-import { inlineHighlight } from '#src/components/inline_highlight.ts'
+import { SECTIONS } from './sections'
 
 const examples = {
   declareRoutes: `App({
@@ -30,7 +29,7 @@ export default () => {
 }`
 }
 
-export const _routing = _section([
+export default _section([
   h2({
     children: 'Routing',
     id: SECTIONS.routing.id

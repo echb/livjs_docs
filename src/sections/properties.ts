@@ -1,8 +1,7 @@
-import { _inlineCodeCard } from '../components/inline_code'
-import { _section } from '../components/section'
-import { SECTIONS } from './sections'
+import { _section } from '#components/section/section.ts'
 import { shikiCode } from '#src/components/shiki.ts'
 import { h2, ul } from '#src/tags.ts'
+import { SECTIONS } from './sections'
 
 const examples = {
   properties: `id //id of the html element

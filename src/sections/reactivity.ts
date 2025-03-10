@@ -1,12 +1,9 @@
 import { widget } from 'livjs'
-import { _card } from '#components/card.ts'
-import { _code } from '#components/code.ts'
-import { _inlineCodeCard } from '#components/inline_code.ts'
-import { _section } from '#components/section.ts'
+import { inlineHighlight } from '#components/inline_highlight.ts'
+import { _section } from '#components/section/section.ts'
 import { shikiCode } from '#components/shiki.ts'
-import { SECTIONS } from './sections'
 import { br, h2, h3, p, span } from '#src/tags.ts'
-import { inlineHighlight } from '#src/components/inline_highlight.ts'
+import { SECTIONS } from './sections'
 
 const examples = {
   effect: `import { signal, effect } from 'livjs'

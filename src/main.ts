@@ -1,12 +1,12 @@
-import { App, signal } from 'livjs'
+import { App, Lazy, signal } from 'livjs'
 import { _creation } from './sections/creation'
 import { _header } from './sections/header'
 import { _properties } from './sections/properties'
 import { _reactivity } from './sections/reactivity'
-import { _routing } from './sections/routing'
 import { SECTIONS } from './sections/sections'
 import { _syntax } from './sections/syntax'
 import { a, div, li, main, span, ul } from './tags'
+
 const showNavVar = signal(false)
 
 App({
@@ -156,7 +156,7 @@ App({
             _reactivity,
 
             // MARK: Routing
-            _routing
+            Lazy(() => import('./sections/routing'))
           ]
         })
       ]

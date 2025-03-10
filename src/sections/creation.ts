@@ -1,11 +1,8 @@
-import { _card } from '#components/card.ts'
-import { _inlineCodeCard } from '#components/inline_code.ts'
-import { _code } from '#components/code.ts'
-import { _section } from '#components/section.ts'
-import { SECTIONS } from './sections'
-import { shikiCode } from '#src/components/shiki.ts'
+import { inlineHighlight } from '#components/inline_highlight.ts'
+import { _section } from '#components/section/section.ts'
+import { shikiCode } from '#components/shiki.ts'
 import { h2, p, span } from '#src/tags.ts'
-import { inlineHighlight } from '#src/components/inline_highlight.ts'
+import { SECTIONS } from './sections'
 
 const examples = {
   basic: `import { App, widget } from 'livjs'

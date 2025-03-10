@@ -21,6 +21,6 @@
     "vite": "6.1.0"
   },
   "dependencies": {
-    "livjs": "0.5.1"
+    "livjs": "0.51.1"
   }
 }
