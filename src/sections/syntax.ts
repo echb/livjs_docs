@@ -1,4 +1,4 @@
-import { inlineHighlight } from '#components/inline_highlight.ts'
+import { inlineHighlight } from '#components/inline_highlight/inline_highlight.ts'
 import { _section } from '#components/section/section.ts'
 import { h2, p, span } from '#src/tags.ts'
 import { SECTIONS } from './sections'

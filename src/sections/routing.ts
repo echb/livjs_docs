@@ -1,4 +1,4 @@
-import { inlineHighlight } from '#components/inline_highlight.ts'
+import { inlineHighlight } from '#components/inline_highlight/inline_highlight.ts'
 import { _section } from '#components/section/section.ts'
 import { shikiCode } from '#components/shiki.ts'
 import { h2, h3, p, span } from '#src/tags.ts'

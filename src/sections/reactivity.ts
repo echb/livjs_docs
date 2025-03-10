@@ -1,5 +1,5 @@
 import { widget } from 'livjs'
-import { inlineHighlight } from '#components/inline_highlight.ts'
+import { inlineHighlight } from '#components/inline_highlight/inline_highlight.ts'
 import { _section } from '#components/section/section.ts'
 import { shikiCode } from '#components/shiki.ts'
 import { br, h2, h3, p, span } from '#src/tags.ts'
