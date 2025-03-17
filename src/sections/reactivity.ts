@@ -46,17 +46,17 @@ export const _reactivity = _section([
       }),
       br(),
       br(),
-      shikiCode(examples.effect),
-      br(),
-      inlineHighlight('signal()'),
-      span({
-        children:
-          ' takes the argument and returns it wrapped within a ref object with a'
-      }),
-      inlineHighlight(' .value '),
-      p({
-        children: 'property:'
-      })
+      shikiCode(examples.effect)
+      // br(),
+      // inlineHighlight('signal()'),
+      // span({
+      //   children:
+      //     ' takes the argument and returns it wrapped within a ref object with a'
+      // }),
+      // inlineHighlight(' .value '),
+      // p({
+      //   children: 'property:'
+      // })
     ]
   })
 ])

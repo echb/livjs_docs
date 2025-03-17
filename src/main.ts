@@ -6,18 +6,15 @@ import { _reactivity } from './sections/reactivity'
 import { SECTIONS } from './sections/sections'
 import { _syntax } from './sections/syntax'
 import { a, div, li, main, span, ul } from './tags'
+import './styles/global.css'
+import { mb40 } from './styles/styles.css'
 
 const showNavVar = signal(false)
 
 App({
   children: [
     div({
-      attributes: {
-        layout: ''
-      },
-      style: {
-        marginBottom: '40px'
-      },
+      class: mb40,
       children: [
         // MARK: Header
         _header,
