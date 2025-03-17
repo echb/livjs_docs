@@ -3,32 +3,33 @@
 @import url('/icons/copy.css');
 @import url('/icons/menu.css');
 
-* {
+/* * {
   color: #ffffffde;
   font-family: "Geist", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
   box-sizing: border-box;
-}
+  font: inherit;
+} */
 
-html {
+/* html {
   scroll-behavior: smooth;
-}
+} */
 
-body {
+/* body {
   background-color: #1b1b1f;
   margin: 0;
   padding: 0;
-}
+} */
 
-li,
+/* li,
 span,
 p,
 a {
   color: inherit;
   font-weight: inherit;
-}
+} */
 
 .link {
   transition: color 0.3s ease-in, background-color 0.3s ease-in;
