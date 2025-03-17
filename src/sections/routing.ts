@@ -26,7 +26,20 @@ export default () => {
       }),
     ],
   })
-}`
+}`,
+  methods: `import { Navigator } from 'livjs'
+
+Navigator.current()
+Navigator.go(-1)
+Navigator.go(1)
+Navigator.go(3)
+Navigator.push('/about')
+Navigator.pushNamed('about')
+Navigator.replace('/about')
+Navigator.replaceNamed('about')
+Navigator.params()
+Navigator.current()
+`
 }
 
 export default _section([
@@ -75,7 +88,5 @@ export default _section([
   h3({
     children: 'Navigator methods'
   }),
-  span({
-    children: inlineHighlight('Todo')
-  })
+  shikiCode(examples.methods)
 ])
