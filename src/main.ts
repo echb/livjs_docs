@@ -1,4 +1,4 @@
-import { App, Lazy, signal } from 'livjs'
+import { App, signal } from 'livjs'
 import { _creation } from './sections/creation'
 import { _header } from './sections/header'
 import { _properties } from './sections/properties'
@@ -7,8 +7,8 @@ import { SECTIONS } from './sections/sections'
 import { _syntax } from './sections/syntax'
 import { a, div, li, main, span, ul } from './tags'
 import './styles/global.css'
-import { mb40 } from './styles/styles.css'
 import { routing } from './sections/routing'
+import { mb40 } from './styles/styles.css'
 
 const showNavVar = signal(false)
 
