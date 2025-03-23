@@ -42,7 +42,7 @@ Navigator.current()
 `
 }
 
-export default _section([
+export const routing = _section([
   h2({
     children: 'Routing',
     id: SECTIONS.routing.id

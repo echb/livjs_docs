@@ -8,6 +8,7 @@ import { _syntax } from './sections/syntax'
 import { a, div, li, main, span, ul } from './tags'
 import './styles/global.css'
 import { mb40 } from './styles/styles.css'
+import { routing } from './sections/routing'
 
 const showNavVar = signal(false)
 
@@ -153,7 +154,7 @@ App({
             _reactivity,
 
             // MARK: Routing
-            Lazy(() => import('./sections/routing'))
+            routing
           ]
         })
       ]
